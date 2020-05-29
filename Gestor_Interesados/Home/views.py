@@ -4,14 +4,10 @@ from django.urls import path, reverse
 from .forms import LoginUserForm
 from .models import Servicio, Peticion, contenido_nosotros, contenido_servicio, Cliente
 from django.http import HttpResponse
-from django.http import HttpResponseRedirect 
+from django.http import HttpResponseRedirect
 from django.contrib.auth import login as do_login
 from django.contrib.auth import logout as do_logout
 from django.contrib.auth import authenticate
-from django.http import JsonResponse
-from rest_framework.views import APIView
-from rest_framework.views import Response
-from .serializers import ServicioSerializado
 
 
 # Create your views here.
@@ -31,26 +27,28 @@ def login(request):
                     do_login(request, user)
                     return HttpResponseRedirect(reverse('main:home'))
 
-        context = {'form':form}
-        return render(request, "main/auth/login.html",context)
+        context = {'form': form}
+        return render(request, "main/auth/login.html", context)
 
 
 def logout(request):
     do_logout(request)
     return HttpResponseRedirect(reverse('auth:login'))
 
+
 def Home(request):
     if request.user.is_authenticated:
         peticiones = Peticion.objects.filter()
-        context = {'peticiones':peticiones}
-        return render(request, "main/peticiones.html",context)
+        context = {'peticiones': peticiones}
+        return render(request, "main/peticiones.html", context)
     else:
         return HttpResponseRedirect(reverse('auth:login'))
+
 
 def clientes(request):
     if request.user.is_authenticated:
         clientes = Cliente.objects.filter()
-        context = {'clientes':clientes}
-        return render(request,'main/inventario.html',context)
+        context = {'clientes': clientes}
+        return render(request, 'main/inventario.html', context)
     else:
         return HttpResponseRedirect(reverse('auth:login'))
