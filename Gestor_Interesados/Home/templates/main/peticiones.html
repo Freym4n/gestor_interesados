@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--  Estilos  -->
+
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/estilos.css' %}">
+
+    <!--  Fuentes  -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+
+    <link rel="icon" href="images/favicon.ico">
+
+</head>
+
+<body>
+    
+    <header>
+        <div class="cabezote">
+            <div class="logo">
+                <img src="{% static 'images/logo.png' %}" alt="</a>">
+            </div>
+            
+            <p class="info">
+                Administrador
+            </p>
+        </div>
+    </header>
+    
+    <main class="peticiones">       
+        <div class="contenido">
+                    <div class="up">
+                        <div class="title">
+                            <h1>Inventario</h1>
+                            <a href="inventario.html">Clientes</a>
+                            <a href="peticiones.html">Peticiones</a>
+                        </div>
+
+                        <div id="header-item-center">
+                            <form method="post">
+                                <label for="prisoner_search"></label>
+                                <input id="prisoner_search" type="text" name="user_input">
+                                <input type="submit" value="Buscar" />
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="informacion">
+                        <table class="tablas">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Correo eléctronico</th>
+                                <th>Teléfono</th>
+                                <th>Servicio</th>
+                                <th>Descripción</th>
+                                <th>Estado</th>
+                            </tr>
+                            
+                            <tr>
+                                <td>Jose Beltran</td>
+                                <td>Asesoria contable</td>
+                                <td>3456687423</td>
+                                <td>18/05/2020</td>
+                                <td>Necesito ayuda</td>
+                                <td>
+                                   <form>
+                                    <input type="checkbox">
+                                </form>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Jose Beltran</td>
+                                <td>Asesoria contable</td>
+                                <td>3456687423</td>
+                                <td>18/05/2020</td>
+                                <td>Necesito ayuda</td>
+                                <td>
+                                   <form>
+                                    <input type="checkbox">
+                                </form>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Jose Beltran</td>
+                                <td>Asesoria contable</td>
+                                <td>3456687423</td>
+                                <td>18/05/2020</td>
+                                <td>Necesito ayuda</td>
+                                <td>
+                                   <form>
+                                    <input type="checkbox">
+                                </form>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Jose Beltran</td>
+                                <td>Asesoria contable</td>
+                                <td>3456687423</td>
+                                <td>18/05/2020</td>
+                                <td>Necesito ayuda</td>
+                                <td>
+                                   <form>
+                                    <input type="checkbox">
+                                </form>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Jose Beltran</td>
+                                <td>Asesoria contable</td>
+                                <td>3456687423</td>
+                                <td>18/05/2020</td>
+                                <td>Necesito ayuda</td>
+                                <td>
+                                   <form>
+                                    <input type="checkbox">
+                                </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+        </div>
+    </main>
+    
+</body>
+</html>

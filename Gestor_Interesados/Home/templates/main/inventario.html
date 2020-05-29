@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--  Estilos  -->
+
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <!--  Fuentes  -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+
+    <link rel="icon" href="images/favicon.ico">
+
+</head>
+
+<body>
+    
+    <header>
+        <div class="cabezote">
+            <div class="logo">
+                <img src="images/logo.png" alt="</a>">
+            </div>
+            
+            <p class="info">
+                Administrador
+            </p>
+        </div>
+    </header>
+    
+    <main class="invent">       
+        <div class="content2">
+                <div class="izq">
+                    <div class="up">
+                        <div class="title">
+                            <h1>Inventario</h1>
+                            <a href="inventario.html">Clientes</a>
+                            <a href="peticiones.html">Peticiones</a>
+                        </div>
+
+                        <div id="header-item-center">
+                            <form method="post">
+                                <label for="prisoner_search"></label>
+                                <input id="prisoner_search" type="text" name="user_input">
+                                <input type="submit" value="Buscar" />
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="informacion">
+                        <table class="tablas">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Servicio</th>
+                                <th>Teléfono</th>
+                                <th>Fecha</th>
+                            </tr>
+                            
+                            <tr>
+                                <td>Jose Beltran</td>
+                                <td>Asesoria contable</td>
+                                <td>3456687423</td>
+                                <td>18/05/2020</td>
+                                <td><img src="images/basura.png" alt="caneca de basura de color rojo"></td>
+                                <td><img src="images/lapiz.jpg" alt="lapiz de color blanco con fondo verde"></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Jose Velez</td>
+                                <td>Revisoria fiscal</td>
+                                <td>3456687423</td>
+                                <td>18/05/2020</td>
+                                <td><img src="images/basura.png" alt="caneca de basura de color rojo"></td>
+                                <td><img src="images/lapiz.jpg" alt="lapiz de color blanco con fondo verde"></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Javier Gomez</td>
+                                <td>Revisoria fiscal</td>
+                                <td>3456687423</td>
+                                <td>18/05/2020</td>
+                                <td><img src="images/basura.png" alt="caneca de basura de color rojo"></td>
+                                <td><img src="images/lapiz.jpg" alt="lapiz de color blanco con fondo verde"></td>
+                            </tr>
+                        </table>
+                    </div>
+            </div>
+            
+            
+            <div class="der">
+                   <h2>Agregar Cliente</h2>
+                    <div class="formu">
+                    <form>
+            <input type="text" placeholder="Nombre"><br>    
+            <input type="checkbox" id="opcion1" name="vehicle1">
+            <label for="vehicle1"> Asesoria de impuestos y tributaria</label><br>
+            <input type="checkbox" id="opcion2">
+            <label for="vehicle2"> Asesoria administrativa y financiera</label><br>
+            <input type="checkbox" id="opcion3">
+            <label for="vehicle3"> Revisoria fiscal</label><br>
+            <input type="checkbox" id="opcion3">
+            <label for="vehicle3"> Asesoria contable</label><br><br>
+            <input type="number" placeholder="Teléfono"><br>
+            <input type="date" placeholder="Fecha"><br><br>
+            <input type="submit" value="Enviar">
+        </form>
+                    </div>
+                </div>
+        </div>
+    </main>
+    
+</body>
+</html>

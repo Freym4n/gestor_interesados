@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--  Estilos  -->
+
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/estilos.css' %}">
+
+    <!--  Fuentes  -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+
+    <link rel="icon" href="images/favicon.ico">
+
+</head>
+
+<body>
+    
+    <div class="login">
+        <form method = "POST">
+            {% csrf_token %}
+            {% for field in form %}
+            {{ field.label }}<br>
+            {{ field }}<br>
+            <br>
+            {% endfor %}
+            {% if form.errors %}
+                        <div style="height: 5px; margin-bottom: 20px;">
+                            <p style="width: 100%; text-align: center; font-size: small;">Usuario o contraseña no válidos.</p>
+                        </div>
+                        {% endif %}
+                <input type="submit" value="Ingresar">
+            </form>
+    </div>
+    
+</body>
+</html>

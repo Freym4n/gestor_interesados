@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login {
+    background-image: url(../images/fondo.jpg);
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login form {
+    background-color: #812928;
+    width: 25%;
+    padding: 2%;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+    border: 1px solid #000;
+    background: #FEFEFE;
+    outline: none;
+    color: #22242e;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    font-family: 'ubuntu', sans-serif;
+    font-weight: 400; 
+    margin-bottom: 30px;
+}
+
+.login input[type="submit"] {
+    border: none;
+    display: block;
+    margin: 0 auto;
+    background: #000;
+    font-family: 'ubuntu', sans-serif;
+    font-weight: 700; 
+    font-size: 16px;
+    color: #fff;
+    width: 40%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+
+
+/* INVENTARIO */
+
+
+
+
+header {
+    background-color: #F1ECEB;
+}
+
+.cabezote {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 20%;
+}
+
+.logo img {
+    width: 100%;
+}
+
+.info {
+    font-family: 'ubuntu', sans-serif;
+    font-weight: 700; 
+    font-size: 56px;
+    margin-left: 10%;
+    color: #812928;
+}
+
+.invent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-image: url(../images/pasto.png);
+    background-size: cover;
+}
+
+.content2 {
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 4%;
+}
+
+.izq {
+    width: 65%;
+}
+
+.up {
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4% auto 5%;
+}
+
+.title {
+    width: 70%;
+}
+
+.title h1 {
+    font-family: 'ubuntu', sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    color: #812928;
+    margin-bottom: 2%;
+}
+
+.title a {
+    font-family: 'ubuntu', sans-serif;
+    font-weight: 400;
+    margin-right: 4%;
+    text-decoration: none;
+    background-color: #812928;
+    color: #fff;
+    padding: 10px;
+}
+
+#header-item-center {
+    width: 30%;
+}
+
+#header-item-center input {
+    padding: 5px;
+}
+
+#header-item-center input[type="submit"] {
+    background-color: #812928;
+    color: #fff;
+    border: none;
+    padding: 8px;
+}
+
+.informacion {
+    width: 95%;
+}
+
+.tablas {
+    width: 95%;
+    margin: 30px auto 0;
+}
+
+.tablas th {
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    width: 12.5%;
+    padding: 15px;
+    font-family: 'ubuntu', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.tablas td {
+    text-align: center;
+    border: 1px solid #000;
+    width: 12.5%;
+    font-family: 'ubuntu', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.tablas img {
+    display: flex;
+    width: 30%;
+    margin: auto;
+}
+
+.der {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 35%;
+    background-color: #812928;
+    min-height: 90vh;
+}
+
+.der h2 {
+    margin: 2% 0;
+    display: block;
+    font-family: 'ubuntu', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+}
+
+.formu {
+    width: 80%;
+}
+
+.formu form {
+    margin: 5% auto;
+}
+
+.formu label {
+    font-family: 'ubuntu', sans-serif;
+    font-weight: 400; 
+    color: #fff;
+}
+
+.formu input[type="text"],
+.formu input[type="number"],
+.formu input[type="date"] {
+    border: 1px solid #000;
+    background: #FEFEFE;
+    outline: none;
+    color: #22242e;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    font-family: 'Baloo Paaji 2', sans-serif;
+    margin-bottom: 30px;
+}
+
+#username {
+    height: 100px;
+}
+
+.formu input[type="submit"] {
+    border: none;
+    display: block;
+    margin: 0 auto;
+    background: #000;
+    font-family: 'Baloo Paaji 2', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    width: 40%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+
+
+/* PETICIONES */
+
+
+
+.contenido{
+    width: 80%;
+    margin: auto;
+}
