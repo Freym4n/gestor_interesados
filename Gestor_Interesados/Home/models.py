@@ -36,7 +36,7 @@ class Peticion(models.Model):
         on_delete= models.CASCADE,
         null = True
     )
-    def save(self):
+    def save(self, *args, **kwargs):
         super(Peticion,self).save()
     def __str__(self):
         return self.nombre

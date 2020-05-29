@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
 from django.urls import reverse
-from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -13,7 +12,7 @@ from django.contrib.auth import logout as do_logout
 from django.contrib.auth import authenticate
 
 # Create your views here.
-from .serializers import ServicioSerializado
+from .serializers import ServicioSerializado, PeticionSerializer
 
 
 def login(request):
@@ -71,4 +70,20 @@ class ServiceView(APIView):
         if serializer.is_valid(raise_exception=True):
             saved_service = serializer.save()
             return Response({"success": "Article '{}' created successfully".format(saved_service.nombre)})
+        return Response({"failure": "Article '{}' not created"})
+
+
+class PetitionView(APIView):
+
+    def get(self, request):
+        petitions = Peticion.objects.all().order_by('nombre')
+        serializer = ServicioSerializado(petitions, many=True)
+        return Response({"petitions": serializer.data})
+
+    def post(self, request):
+        petition = request.data.get('petition')
+        serializer = PeticionSerializer(data=petition)
+        if serializer.is_valid(raise_exception=True):
+            saved_petition = serializer.save()
+            return Response({"success": "Article '{}' created successfully".format(saved_petition.nombre)})
         return Response({"failure": "Article '{}' not created"})
