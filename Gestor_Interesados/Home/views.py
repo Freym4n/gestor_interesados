@@ -1,9 +1,8 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.urls import path, reverse
+from django.contrib.auth.forms import AuthenticationForm
+from django.urls import reverse
 from .forms import LoginUserForm
-from .models import Servicio, Peticion, contenido_nosotros, contenido_servicio, Cliente
-from django.http import HttpResponse
+from .models import Peticion, Cliente
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login as do_login
 from django.contrib.auth import logout as do_logout
