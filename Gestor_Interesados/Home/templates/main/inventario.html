@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,7 +8,7 @@
 
     <!--  Estilos  -->
 
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/estilos.css' %}">
 
     <!--  Fuentes  -->
 
@@ -24,7 +25,7 @@
     <header>
         <div class="cabezote">
             <div class="logo">
-                <img src="images/logo.png" alt="</a>">
+                <img src="{% static 'images/logo.png' %}" alt="</a>">
             </div>
             
             <p class="info">
@@ -39,8 +40,8 @@
                     <div class="up">
                         <div class="title">
                             <h1>Inventario</h1>
-                            <a href="inventario.html">Clientes</a>
-                            <a href="peticiones.html">Peticiones</a>
+                            <a href="{% url 'main:clientes' %}">Clientes</a>
+                            <a href="{% url 'main:home' %}">Peticiones</a>
                         </div>
 
                         <div id="header-item-center">
@@ -60,33 +61,16 @@
                                 <th>Teléfono</th>
                                 <th>Fecha</th>
                             </tr>
-                            
+                            {% for item in clientes %}
                             <tr>
-                                <td>Jose Beltran</td>
-                                <td>Asesoria contable</td>
-                                <td>3456687423</td>
-                                <td>18/05/2020</td>
-                                <td><img src="images/basura.png" alt="caneca de basura de color rojo"></td>
-                                <td><img src="images/lapiz.jpg" alt="lapiz de color blanco con fondo verde"></td>
+                                <td>{{item.nombre}}</td>
+                                <td>{{item.servicio.nombre}}</td>
+                                <td>{{item.telefono}}</td>
+                                <td>{{item.fecha}}</td>
+                                <td><img src="{% static 'images/basura.png' %}" alt="caneca de basura de color rojo"></td>
+                                <td><img src="{% static 'images/lapiz.jpg'   %}" alt="lapiz de color blanco con fondo verde"></td>
                             </tr>
-                            
-                            <tr>
-                                <td>Jose Velez</td>
-                                <td>Revisoria fiscal</td>
-                                <td>3456687423</td>
-                                <td>18/05/2020</td>
-                                <td><img src="images/basura.png" alt="caneca de basura de color rojo"></td>
-                                <td><img src="images/lapiz.jpg" alt="lapiz de color blanco con fondo verde"></td>
-                            </tr>
-                            
-                            <tr>
-                                <td>Javier Gomez</td>
-                                <td>Revisoria fiscal</td>
-                                <td>3456687423</td>
-                                <td>18/05/2020</td>
-                                <td><img src="images/basura.png" alt="caneca de basura de color rojo"></td>
-                                <td><img src="images/lapiz.jpg" alt="lapiz de color blanco con fondo verde"></td>
-                            </tr>
+                            {% endfor %}
                         </table>
                     </div>
             </div>

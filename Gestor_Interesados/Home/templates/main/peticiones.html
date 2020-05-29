@@ -39,8 +39,8 @@
                     <div class="up">
                         <div class="title">
                             <h1>Inventario</h1>
-                            <a href="inventario.html">Clientes</a>
-                            <a href="peticiones.html">Peticiones</a>
+                            <a href="{% url 'main:clientes' %}">Clientes</a>
+                            <a href="{% url 'main:home' %}">Peticiones</a>
                         </div>
 
                         <div id="header-item-center">
@@ -54,6 +54,7 @@
 
                     <div class="informacion">
                         <table class="tablas">
+                            
                             <tr>
                                 <th>Nombre</th>
                                 <th>Correo eléctronico</th>
@@ -63,70 +64,23 @@
                                 <th>Estado</th>
                             </tr>
                             
+
+                            {% for item in peticiones %}
                             <tr>
-                                <td>Jose Beltran</td>
-                                <td>Asesoria contable</td>
-                                <td>3456687423</td>
-                                <td>18/05/2020</td>
-                                <td>Necesito ayuda</td>
+                                <td>{{item.nombre}}</td>
+                                <td>{{item.correo}}</td>
+                                <td>{{item.telefono}}</td>
+                                <td>{{item.servicio.nombre}}</td>
+                                <td>{{item.descripcion}}</td>
                                 <td>
                                    <form>
                                     <input type="checkbox">
                                 </form>
                                 </td>
                             </tr>
-                            
-                            <tr>
-                                <td>Jose Beltran</td>
-                                <td>Asesoria contable</td>
-                                <td>3456687423</td>
-                                <td>18/05/2020</td>
-                                <td>Necesito ayuda</td>
-                                <td>
-                                   <form>
-                                    <input type="checkbox">
-                                </form>
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td>Jose Beltran</td>
-                                <td>Asesoria contable</td>
-                                <td>3456687423</td>
-                                <td>18/05/2020</td>
-                                <td>Necesito ayuda</td>
-                                <td>
-                                   <form>
-                                    <input type="checkbox">
-                                </form>
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td>Jose Beltran</td>
-                                <td>Asesoria contable</td>
-                                <td>3456687423</td>
-                                <td>18/05/2020</td>
-                                <td>Necesito ayuda</td>
-                                <td>
-                                   <form>
-                                    <input type="checkbox">
-                                </form>
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td>Jose Beltran</td>
-                                <td>Asesoria contable</td>
-                                <td>3456687423</td>
-                                <td>18/05/2020</td>
-                                <td>Necesito ayuda</td>
-                                <td>
-                                   <form>
-                                    <input type="checkbox">
-                                </form>
-                                </td>
-                            </tr>
+                            {% empty %}
+                            <li style="height: 60px; display: flex; align-items: center; justify-content: center;"> No hay peticiones actualmente</li>
+                            {% endfor %}
                         </table>
                     </div>
         </div>

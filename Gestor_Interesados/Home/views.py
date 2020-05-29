@@ -40,5 +40,17 @@ def logout(request):
     return HttpResponseRedirect(reverse('auth:login'))
 
 def Home(request):
-    return render(request, "main/peticiones.html")
+    if request.user.is_authenticated:
+        peticiones = Peticion.objects.filter()
+        context = {'peticiones':peticiones}
+        return render(request, "main/peticiones.html",context)
+    else:
+        return HttpResponseRedirect(reverse('auth:login'))
 
+def clientes(request):
+    if request.user.is_authenticated:
+        clientes = Cliente.objects.filter()
+        context = {'clientes':clientes}
+        return render(request,'main/inventario.html',context)
+    else:
+        return HttpResponseRedirect(reverse('auth:login'))

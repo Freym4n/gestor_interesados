@@ -14,10 +14,11 @@ class Cliente(models.Model):
     nit = models.CharField(max_length=20)
     nombre = models.CharField(max_length=60)
     telefono = models.CharField(max_length=15)
-    id_servicio = models.ForeignKey(
+    servicio = models.ForeignKey(
         Servicio,
         on_delete =models.CASCADE
     )
+    fecha = models.DateField()
     def save(self):
         super(Cliente,self).save()
     def __str__(self):
@@ -30,7 +31,7 @@ class Peticion(models.Model):
     descripcion = models.CharField( max_length = 400)
     fecha = models.DateField()
     estado_revision = models.IntegerField()
-    id_Servicio = models.ForeignKey(
+    servicio = models.ForeignKey(
         Servicio,
         on_delete= models.CASCADE,
         null = True
