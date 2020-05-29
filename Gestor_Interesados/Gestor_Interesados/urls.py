@@ -20,6 +20,6 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include(('Home.urls','Gestor_Interesados'), namespace='main')),
-    path('auth/',include(('Home.urls','Gestor_Interesados'),namespace='auth')),
+    path('', include(('Home.urls', 'Gestor_Interesados'), namespace='main')),
+    path('auth/', include(('Home.urls', 'Gestor_Interesados'), namespace='auth')),
 ]

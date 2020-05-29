@@ -1,15 +1,20 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
 from django.urls import reverse
+from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from .forms import LoginUserForm
-from .models import Peticion, Cliente
+from .models import Peticion, Cliente, Servicio
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login as do_login
 from django.contrib.auth import logout as do_logout
 from django.contrib.auth import authenticate
 
-
 # Create your views here.
+from .serializers import ServicioSerializado
+
 
 def login(request):
     if request.user.is_authenticated:
@@ -51,3 +56,19 @@ def clientes(request):
         return render(request, 'main/inventario.html', context)
     else:
         return HttpResponseRedirect(reverse('auth:login'))
+
+
+class ServiceView(APIView):
+
+    def get(self, request):
+        services = Servicio.objects.all().order_by('nombre')
+        serializer = ServicioSerializado(services, many=True)
+        return Response({"services": serializer.data})
+
+    def post(self, request):
+        service = request.data.get('service')
+        serializer = ServicioSerializado(data=service)
+        if serializer.is_valid(raise_exception=True):
+            saved_service = serializer.save()
+            return Response({"success": "Article '{}' created successfully".format(saved_service.nombre)})
+        return Response({"failure": "Article '{}' not created"})
