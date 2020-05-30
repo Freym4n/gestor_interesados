@@ -29,7 +29,7 @@
     padding: 10px;
     width: 100%;
     font-family: 'ubuntu', sans-serif;
-    font-weight: 400; 
+    font-weight: 400;
     margin-bottom: 30px;
 }
 
@@ -39,7 +39,7 @@
     margin: 0 auto;
     background: #000;
     font-family: 'ubuntu', sans-serif;
-    font-weight: 700; 
+    font-weight: 700;
     font-size: 16px;
     color: #fff;
     width: 40%;
@@ -66,6 +66,7 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .logo {
@@ -78,10 +79,22 @@ header {
 
 .info {
     font-family: 'ubuntu', sans-serif;
-    font-weight: 700; 
+    font-weight: 700;
     font-size: 56px;
     margin-left: 10%;
     color: #812928;
+}
+
+.exit {
+    width: 10%;
+    position: absolute;
+    top: 20%;
+    right: 3%;
+    border: 0;
+}
+
+.exit img {
+    width: 100%;
 }
 
 .invent {
@@ -114,7 +127,11 @@ header {
 }
 
 .title {
-    width: 70%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .title h1 {
@@ -125,7 +142,13 @@ header {
     margin-bottom: 2%;
 }
 
-.title a {
+.botones {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.botones a {
     font-family: 'ubuntu', sans-serif;
     font-weight: 400;
     margin-right: 4%;
@@ -133,6 +156,18 @@ header {
     background-color: #812928;
     color: #fff;
     padding: 10px;
+}
+
+.botones button {
+    display: none
+}
+
+.lupa {
+    display: none;
+}
+
+.buscadorCel {
+    display: none;
 }
 
 #header-item-center {
@@ -157,6 +192,7 @@ header {
 .tablas {
     width: 95%;
     margin: 30px auto 0;
+    border-spacing: 0px;
 }
 
 .tablas th {
@@ -164,6 +200,7 @@ header {
     background-color: #000;
     color: #fff;
     width: 12.5%;
+    border-right: 1px solid #f2f2f2;
     padding: 15px;
     font-family: 'ubuntu', sans-serif;
     font-weight: 400;
@@ -174,18 +211,28 @@ header {
     text-align: center;
     border: 1px solid #000;
     width: 12.5%;
+    padding: 10px;
     font-family: 'ubuntu', sans-serif;
     font-weight: 400;
     font-size: 15px;
 }
 
+.tablas tbody tr:nth-child(2n) {
+    background-color: #f2f2f2;
+}
+
 .tablas img {
-    display: flex;
     width: 30%;
     margin: auto;
 }
 
+.boton {
+    display: none;
+}
+
 .der {
+    position: fixed;
+    right: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -205,6 +252,7 @@ header {
 
 .formu {
     width: 80%;
+    height: 100vh;
 }
 
 .formu form {
@@ -213,7 +261,7 @@ header {
 
 .formu label {
     font-family: 'ubuntu', sans-serif;
-    font-weight: 400; 
+    font-weight: 400;
     color: #fff;
 }
 
@@ -227,7 +275,7 @@ header {
     font-size: 16px;
     padding: 10px;
     width: 100%;
-    font-family: 'Baloo Paaji 2', sans-serif;
+    font-family: 'ubuntu', sans-serif;
     margin-bottom: 30px;
 }
 
@@ -240,7 +288,7 @@ header {
     display: block;
     margin: 0 auto;
     background: #000;
-    font-family: 'Baloo Paaji 2', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
     font-size: 16px;
     color: #fff;
@@ -249,14 +297,286 @@ header {
     cursor: pointer;
 }
 
-
-
+.formu button {
+    display: none;
+}
 
 /* PETICIONES */
 
 
 
-.contenido{
+.contenido {
     width: 80%;
     margin: auto;
+}
+
+
+
+/*  Responsive  */
+
+
+@media screen and (max-width: 1023px) {
+
+    /* LOGIN */
+
+    .login form {
+        width: 80%;
+        padding: 5%;
+    }
+
+    /*  INVENTARIO  */
+
+
+    .info {
+        display: none;
+    }
+
+    .logo {
+        width: 45%;
+    }
+
+    .izq {
+        width: 100%;
+    }
+
+    .up {
+        width: 90%;
+    }
+
+    .title {
+        margin-bottom: 4%;
+    }
+
+    .title h1 {
+        font-size: 40px;
+    }
+
+    .lupa {
+        display: flex;
+        width: 10%;
+        border: 0;
+    }
+
+    .lupa img {
+        width: 100%;
+    }
+
+    #header-item-center {
+        display: none;
+    }
+
+    .botones a {
+        padding: 10px;
+        margin-right: 4%;
+    }
+
+    .botones button {
+        display: flex;
+        background-color: #812928;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        font-family: 'ubuntu', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+    }
+
+
+    .informacion {
+        width: 90%;
+        margin: auto;
+        overflow: scroll;
+    }
+
+    .tablas th {
+        background-color: #000;
+    }
+
+    .tablas td {
+        padding: 5px;
+    }
+
+    .tablas img {
+        padding: 0;
+    }
+
+    .sticky {
+        position: sticky;
+        right: 0;
+    }
+
+
+    .borrar {
+        display: none;
+    }
+
+    .tablas tbody tr .sticky {
+        background-color: #fff;
+    }
+
+    .tablas tbody tr:nth-child(2n) .sticky {
+        background-color: #f2f2f2;
+    }
+
+    .boton {
+        width: 90%;
+        display: flex;
+        margin: 8% auto;
+    }
+
+    .boton button {
+        display: flex;
+        background-color: #812928;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        font-family: 'ubuntu', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        margin-right: 4%;
+    }
+
+    /*  Aquí estoy quitando la clase "der" que es la que contiene el formulario por medio de un display none, en caso querer de hacer visible este formulario, borrar esta clase y descomentar lo que esta justo debajo.  */
+
+    .der {
+        display: none;
+    }
+
+
+
+    /*
+    .der {
+        width: 90%;
+        margin: auto;
+    }
+    
+    .formu {
+    width: 100%;
+    height: 100vh;
+}
+
+.formu form {
+    width: 90%;
+    margin: 5% auto;
+}
+
+.formu label {
+    margin-left: 5%;
+}
+
+    .formu button {
+        border: none;
+    display: block;
+    margin: 0 auto;
+    background: #939393;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000;
+    width: 40%;
+    padding: 10px;
+    cursor: pointer;
+    }
+*/
+
+
+
+
+    /*  buscador  */
+
+    /*  el buscador en celular y tablet esta desactivado por default, para hacerlo visible por favor descomentar lo que esta aquí abajo  */
+
+/*
+    .buscadorCel {
+        width: 100%;
+        height: 100vh;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #000;
+        opacity: 0.9;
+    }
+
+    .volver {
+        margin: 3%;
+        width: 10%;
+    }
+
+    .volver img {
+        width: 100%;
+    }
+
+    #header-item-center2 {
+        width: 90%;
+        margin: 5% auto; 
+    }
+
+    #header-item-center2 input {
+        width: 73%;
+        padding: 5px;
+    }
+
+    #header-item-center2 input[type="submit"] {
+        width: 25%;
+        background-color: #812928;
+        color: #fff;
+        border: none;
+        padding: 8px;
+    }
+*/
+
+
+    /* PETICIONES */
+
+
+
+    .contenido {
+        width: 100%;
+        margin: auto;
+    }
+
+    .sticky2 {
+        position: sticky;
+        right: 0;
+    }
+
+    .tablas tbody tr .sticky2 {
+        background-color: #fff;
+    }
+
+    .tablas tbody tr:nth-child(2n) .sticky2 {
+        background-color: #f2f2f2;
+    }
+
+}
+
+@media screen and (min-width: 500px) {
+    
+    .exit {
+    width: 6%;
+}
+
+    
+    .lupa {
+        width: 5%;
+    }
+
+    .volver {
+        width: 5%;
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+    
+    .exit {
+    width: 3%;
+}
+
+    
+    .sticky {
+        display: none;
+    }
+
 }

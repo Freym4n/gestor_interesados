@@ -31,16 +31,21 @@
             <p class="info">
                 Administrador
             </p>
+            
+            <a class="exit" href = "{% url 'auth:logout' %}">
+                <img src="{% static 'images/exit.png' %}" alt="logo de apagado en color vinotinto">
+            </a>
         </div>
     </header>
     
     <main class="peticiones">       
         <div class="contenido">
                     <div class="up">
-                        <div class="title">
-                            <h1>Inventario</h1>
-                            <a href="{% url 'main:clientes' %}">Clientes</a>
-                            <a href="{% url 'main:home' %}">Peticiones</a>
+                    <div class="title">
+                        <h1>Inventario</h1>
+
+                        <div class="lupa">
+                            <img src="{% static 'images/lupa.png' %}" alt="lupa de color rojo">
                         </div>
 
                         <div id="header-item-center">
@@ -51,6 +56,12 @@
                             </form>
                         </div>
                     </div>
+
+                    <div class="botones">
+                        <a href="{% url 'main:clientes' %}">Clientes</a>
+                        <a href="{% url 'main:home' %}">Peticiones</a> 
+                    </div>
+                </div>
 
                     <div class="informacion">
                         <table class="tablas">

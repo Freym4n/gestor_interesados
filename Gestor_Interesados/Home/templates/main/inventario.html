@@ -21,28 +21,33 @@
 </head>
 
 <body>
-    
+
     <header>
         <div class="cabezote">
             <div class="logo">
-                <img src="{% static 'images/logo.png' %}" alt="</a>">
+                <img src="{% static 'images/logo.png' %}" alt="logo de la entidad ANM asesores">
             </div>
-            
+
             <p class="info">
                 Administrador
             </p>
+            
+            <a class="exit" href = "{% url 'auth:logout' %}">
+                <img src="{% static 'images/exit.png' %}" alt="logo de apagado en color vinotinto">
+            </a>
         </div>
     </header>
-    
-    <main class="invent">       
+
+    <main class="invent">
         <div class="content2">
-                <div class="izq">
-                    <div class="up">
-                        <div class="title">
-                            <h1>Inventario</h1>
-                            <a href="{% url 'main:clientes' %}">Clientes</a>
-                            <a href="{% url 'main:home' %}">Peticiones</a>
-                        </div>
+            <div class="izq">
+                <div class="up">
+                    <div class="title">
+                        <h1>Inventario</h1>
+
+                        <button class="lupa">
+                            <img src="{% static 'images/lupa.png' %}" alt="lupa de color rojo">
+                        </button>
 
                         <div id="header-item-center">
                             <form method="post">
@@ -53,50 +58,80 @@
                         </div>
                     </div>
 
-                    <div class="informacion">
-                        <table class="tablas">
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Servicio</th>
-                                <th>Teléfono</th>
-                                <th>Fecha</th>
-                            </tr>
-                            {% for item in clientes %}
-                            <tr>
-                                <td>{{item.nombre}}</td>
-                                <td>{{item.servicio.nombre}}</td>
-                                <td>{{item.telefono}}</td>
-                                <td>{{item.fecha}}</td>
-                                <td><img src="{% static 'images/basura.png' %}" alt="caneca de basura de color rojo"></td>
-                                <td><img src="{% static 'images/lapiz.jpg'   %}" alt="lapiz de color blanco con fondo verde"></td>
-                            </tr>
-                            {% endfor %}
-                        </table>
-                    </div>
-            </div>
-            
-            
-            <div class="der">
-                   <h2>Agregar Cliente</h2>
-                    <div class="formu">
-                    <form>
-            <input type="text" placeholder="Nombre"><br>    
-            <input type="checkbox" id="opcion1" name="vehicle1">
-            <label for="vehicle1"> Asesoria de impuestos y tributaria</label><br>
-            <input type="checkbox" id="opcion2">
-            <label for="vehicle2"> Asesoria administrativa y financiera</label><br>
-            <input type="checkbox" id="opcion3">
-            <label for="vehicle3"> Revisoria fiscal</label><br>
-            <input type="checkbox" id="opcion3">
-            <label for="vehicle3"> Asesoria contable</label><br><br>
-            <input type="number" placeholder="Teléfono"><br>
-            <input type="date" placeholder="Fecha"><br><br>
-            <input type="submit" value="Enviar">
-        </form>
+                    <div class="botones">
+                        <a href="{% url 'main:clientes' %}">Clientes</a>
+                        <a href="{% url 'main:home' %}">Peticiones</a>
+                        <button>Agregar</button>
                     </div>
                 </div>
+
+                <div class="informacion">
+                    <table class="tablas">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Servicio</th>
+                            <th>Teléfono</th>
+                            <th>Fecha</th>
+                        </tr>
+                        {% for item in clientes %}
+                        <tr>
+                            <td>{{item.nombre}}</td>
+                            <td>{{item.servicio.nombre}}</td>
+                            <td>{{item.telefono}}</td>
+                            <td>{{item.fecha}}</td>
+                            <td><img src="{% static 'images/basura.png' %}" alt="caneca de basura de color rojo"></td>
+                            <td><img src="{% static 'images/lapiz.jpg'   %}" alt="lapiz de color blanco con fondo verde"></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            
+            <div class="boton">
+                <button>Eliminar         </button>
+                
+                <button>Editar
+                </button>
+            </div>
+
+
+            <div class="der">
+                <h2>Agregar Cliente</h2>
+                <div class="formu">
+                    <form>
+                        <input type="text" placeholder="Nombre"><br>
+                        <input type="text" placeholder="Nit"><br>
+                        <input type="checkbox" id="opcion1" name="vehicle1">
+                        <label for="vehicle1"> Asesoria de impuestos y tributaria</label><br>
+                        <input type="checkbox" id="opcion2">
+                        <label for="vehicle2"> Asesoria administrativa y financiera</label><br>
+                        <input type="checkbox" id="opcion3">
+                        <label for="vehicle3"> Revisoria fiscal</label><br>
+                        <input type="checkbox" id="opcion3">
+                        <label for="vehicle3"> Asesoria contable</label><br><br>
+                        <input type="number" placeholder="Teléfono"><br>
+                        <input type="date" placeholder="Fecha"><br><br>
+                        <input type="submit" value="Enviar"><br>
+                        <button>Volver</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </main>
-    
+
+    <div class="buscadorCel">
+        <button class="volver">
+            <img src="{% static 'images/equis.png' %}" alt="Equis de color vinotinto">
+        </button>
+
+        <div id="header-item-center2">
+            <form method="post">
+                <label for="prisoner_search2"></label>
+                <input id="prisoner_search2" type="text" name="user_input2">
+                <input type="submit" value="Buscar" />
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>

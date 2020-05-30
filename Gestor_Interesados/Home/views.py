@@ -57,6 +57,8 @@ def clientes(request):
         return HttpResponseRedirect(reverse('auth:login'))
 
 
+
+
 class ServiceView(APIView):
 
     def get(self, request):
