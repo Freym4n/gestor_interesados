@@ -279,6 +279,18 @@ header {
     margin-bottom: 30px;
 }
 
+.formu select {
+    width: 100%;
+    padding-left: 2%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    font-size: 16px;
+    color: #22242e;
+    font-family: 'ubuntu', sans-serif;
+}
+
+
+
 #username {
     height: 100px;
 }

@@ -49,10 +49,11 @@
                         </div>
 
                         <div id="header-item-center">
-                            <form method="post">
-                                <label for="prisoner_search"></label>
-                                <input id="prisoner_search" type="text" name="user_input">
-                                <input type="submit" value="Buscar" />
+                            <form method="post" action= "{% url 'main:busqueda_peticion' %}">
+                                {% csrf_token %}
+                                <label for="cliente_search"></label>
+                                <input id="busqueda" type="text" name="user_input">
+                                <input type="submit" value="Search" />
                             </form>
                         </div>
                     </div>
@@ -89,8 +90,6 @@
                                 </form>
                                 </td>
                             </tr>
-                            {% empty %}
-                            <li style="height: 60px; display: flex; align-items: center; justify-content: center;"> No hay peticiones actualmente</li>
                             {% endfor %}
                         </table>
                     </div>

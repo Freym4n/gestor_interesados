@@ -81,7 +81,7 @@
                             <td>{{item.telefono}}</td>
                             <td>{{item.fecha}}</td>
                             <td> <a href= "{% url 'main:eliminar_cliente' item.id %}"><img src="{% static 'images/basura.png' %}" alt="caneca de basura de color rojo" ></a></td>
-                            <td> <a href = "{% url 'main:editar_cliente' item.id %}"><img src="{% static 'images/lapiz.jpg'   %}" alt="lapiz de color blanco con fondo verde"></a></td>
+                            <td> <a ><img src="{% static 'images/lapiz.jpg'   %}" alt="lapiz de color blanco con fondo verde"></a></td>
                         </tr>
                         {% endfor %}
                     </table>
@@ -89,7 +89,7 @@
             </div>
             
             <div class="boton">
-                <a href= "{% url 'main:eliminar_cliente' item.id %}"><button>Eliminar         </button></a>
+                <button >Eliminar         </button>
                 
                 <button>Editar
                 </button>
@@ -97,16 +97,16 @@
 
 
             <div class="der">
-                <h2>Agregar Cliente</h2>
+                <h2>Editar Cliente</h2>
                 <div class="formu">
-                    <form method="POST" action= "{% url 'main:agregar_cliente' %}">
+                    <form method="POST">
                         {% csrf_token %}
-                        <input type="text" placeholder="Nit" name= "nit"><br>
-                        <input type="text" placeholder="Nombre" name= "nombre"><br>
-                        <input type="text" placeholder="Telefono" name= "telefono"><br>
-                        <input type="date" placeholder="Fecha" name="fecha"><br>
+                        <input type="text" placeholder="Nit" name= "nit" value = "{{target.nit}}"><br>
+                        <input type="text" placeholder="Nombre" name= "nombre" value = {{target.nombre}}><br>
+                        <input type="text" placeholder="Telefono" name= "telefono" value = {{target.telefono}}><br>
+                        <input type="date" placeholder="Fecha" name="fecha" value = {{target.fecha}}><br>
                         <select name="servicio" required id="id_servicio" name="servicio" >
-                            <option value selected>Selecciona el servicio que deseas</option>
+                            
                             {% for item in servicios %}
                             <option value = "{{item.id}}"> {{item.nombre}}</option>
                             {% endfor %}

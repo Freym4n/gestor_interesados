@@ -1,15 +1,19 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.contrib.auth.forms import AuthenticationForm
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
-from .forms import LoginUserForm
+from django.db.models import Q
+from .forms import LoginUserForm, clienteForm
 from .models import Peticion, Cliente, Servicio
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login as do_login
 from django.contrib.auth import logout as do_logout
 from django.contrib.auth import authenticate
+from django.template import loader
+from django.views import generic
+from django.http import HttpResponse
 
 # Create your views here.
 from .serializers import ServicioSerializado, PeticionSerializer
@@ -51,11 +55,74 @@ def Home(request):
 def clientes(request):
     if request.user.is_authenticated:
         clientes = Cliente.objects.filter()
-        context = {'clientes': clientes}
+        form = clienteForm
+        servicios = Servicio.objects.filter()
+        context = {'clientes': clientes, 'form':form, 'servicios':servicios}
         return render(request, 'main/inventario.html', context)
     else:
         return HttpResponseRedirect(reverse('auth:login'))
 
+
+
+def busqueda(request):
+    if request.method == 'POST':
+        form_data = request.POST
+        user_input = form_data['user_input']
+        form = clienteForm
+        servicios = Servicio.objects.filter()
+        clientes = Cliente.objects.filter(nombre__contains=user_input)
+        template = loader.get_template("main/inventario.html")
+        context = {
+            "clientes": clientes,
+            "form":form,
+            "servicios":servicios
+        }
+        return HttpResponse(template.render(context, request))
+    else:
+        redirect('main:inventario')
+
+def busqueda_peticion(request):
+    if request.method == 'POST':
+        form_data = request.POST
+        user_input = form_data['user_input']
+        peticiones = Peticion.objects.filter(nombre__contains=user_input)
+        template = loader.get_template("main/peticiones.html")
+        context = {
+            'peticiones':peticiones
+        }
+        return HttpResponse(template.render(context, request))
+    else:
+        redirect('main:home')
+
+
+
+def agregar_cliente(request):
+    if request.method == 'POST':
+        form_data = request.POST
+        cliente = Cliente(
+            nit=form_data['nit'],
+            nombre=form_data['nombre'],
+            telefono=form_data['telefono'],
+            servicio=Servicio.objects.get(id = form_data['servicio']),
+            fecha = form_data['fecha'],
+        )
+        cliente.save()
+        return redirect('main:clientes')
+
+def eliminar_cliente(request, id_cliente):
+    Cliente.objects.get(id = id_cliente).delete()
+    return redirect('main:clientes')
+
+
+
+def editar_cliente(request,id_cliente):
+    target = Cliente.objects.get(id = id_cliente)
+    clientes = Cliente.objects.filter()
+    form = clienteForm
+    servicios = Servicio.objects.filter()
+    context = {'clientes': clientes, 'form':form, 'servicios':servicios, 'target':target}
+    return render(request, 'main/editar_cliente.html', context)
+    
 
 
 
