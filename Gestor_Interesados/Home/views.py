@@ -45,7 +45,7 @@ def logout(request):
 
 def Home(request):
     if request.user.is_authenticated:
-        peticiones = Peticion.objects.filter()
+        peticiones = Peticion.objects.filter().order_by("nombre")
         context = {'peticiones': peticiones}
         return render(request, "main/peticiones.html", context)
     else:
@@ -113,6 +113,12 @@ def eliminar_cliente(request, id_cliente):
     Cliente.objects.get(id = id_cliente).delete()
     return redirect('main:clientes')
 
+def cambiar_estado(request, id_peticion):
+    print('entra a la vista')
+    peticion = Peticion.objects.get(id = id_peticion)
+    peticion.estado_revision = (peticion.estado_revision^1)
+    peticion.save()
+    return redirect('main:home')
 
 
 def editar_cliente(request,id_cliente):

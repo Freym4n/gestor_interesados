@@ -78,6 +78,7 @@
                             
 
                             {% for item in peticiones %}
+                            
                             <tr>
                                 <td>{{item.nombre}}</td>
                                 <td>{{item.correo}}</td>
@@ -85,11 +86,19 @@
                                 <td>{{item.servicio.nombre}}</td>
                                 <td>{{item.descripcion}}</td>
                                 <td>
-                                   <form>
-                                    <input type="checkbox">
-                                </form>
+                                   
+                                    <a href="{% url 'main:cambiar_estado' item.id %}"  {% if item.estado_revision == 1%} style="color: darkgreen;" {% else %} style="color: red;"{% endif%}>
+                                        {% if item.estado_revision == 1%}
+                                            Revisado
+                                        {% else %}
+                                            Sin revisar
+                                        {% endif %}
+                                       
+                                    </a>
+                                
                                 </td>
                             </tr>
+                            
                             {% endfor %}
                         </table>
                     </div>

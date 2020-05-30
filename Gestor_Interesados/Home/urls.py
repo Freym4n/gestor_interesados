@@ -16,6 +16,7 @@ urlpatterns = [
     path('main/agregar', views.agregar_cliente, name= 'agregar_cliente'),
     path('main/eliminar/<int:id_cliente>', views.eliminar_cliente, name= 'eliminar_cliente'),
     path('main/editar/<int:id_cliente>',views.editar_cliente,name='editar_cliente'),
+    path('main/cambiar_estado/<int:id_peticion>',views.cambiar_estado, name="cambiar_estado"),
     url('services/', ServiceView.as_view()),
     url('petitions/', PetitionView.as_view()),
 ]
